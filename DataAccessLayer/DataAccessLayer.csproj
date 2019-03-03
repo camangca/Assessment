@@ -7,8 +7,8 @@
     <ProjectGuid>14a6797e-e198-4ae7-9654-23bc7594929f</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Assessment</RootNamespace>
-    <AssemblyName>Assessment</AssemblyName>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
