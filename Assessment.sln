@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer.Test", "BusinessLayer.Test\BusinessLayer.Test.csproj", "{2C203926-0F94-4198-9376-4EB88C0FEF47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesApp", "EmployeesApp\EmployeesApp.csproj", "{52654E12-A7D8-4E6A-942F-7F9725D1B669}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesApi", "EmployeesApi\EmployeesApi.csproj", "{52654E12-A7D8-4E6A-942F-7F9725D1B669}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesApp.Tests", "EmployeesApp.Tests\EmployeesApp.Tests.csproj", "{58FF8129-36EE-4A8B-AB93-FA9CC4DCF3F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesApi.Tests", "EmployeesApi.Tests\EmployeesApi.Tests.csproj", "{58FF8129-36EE-4A8B-AB93-FA9CC4DCF3F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,7 +50,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9DB91ABC-38C9-4205-8216-D5E6E2C2A53F}
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
+		SolutionGuid = {9DB91ABC-38C9-4205-8216-D5E6E2C2A53F}
 	EndGlobalSection
 EndGlobal

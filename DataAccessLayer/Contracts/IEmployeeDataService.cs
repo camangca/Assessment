@@ -7,6 +7,6 @@ namespace DataAccessLayer.Contracts
 
     public interface IEmployeeDataService
     {
-        List<Employee> GetDataEmployeeService(int? id);
+        List<Employee> GetDataEmployeeService();
     }
 }

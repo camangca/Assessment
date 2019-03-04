@@ -15,41 +15,26 @@ namespace DataAccessLayer
     {
 
         private string httpAddress = "http://masglobaltestapi.azurewebsites.net/api/Employees";
-        private string httpAddressParam = "http://vmdev26273.cloudapp.net/WEB/WebApiCores/api/{0}/Committee/PostReport";
         public EmployeeDataService()
         {
         }
 
-        public List<Employee> GetDataEmployeeService(int? id)
+        public List<Employee> GetDataEmployeeService()
         {
             try
             {
                 HttpClient httpClient = new HttpClient();
-                //if (id == null)
-                //{
-                    var jsonInformation = new WebClient().DownloadString(httpAddress);
 
-                    //var jsonInformation = await httpClient.GetStringAsync(httpAddress);
+                var jsonInformation = new WebClient().DownloadString(httpAddress);
 
-                    return JsonConvert.DeserializeObject<List<Employee>>(jsonInformation);
-                //}
-                //else
-                //{
-                //    string addressParameter = string.Format(httpAddressParam, id.ToString());
-                //    var jsonInformation = await httpClient.GetStringAsync(addressParameter);
-                //    return JsonConvert.DeserializeObject<RootObject>(jsonInformation);
-                //}
+                return JsonConvert.DeserializeObject<List<Employee>>(jsonInformation);
+
             }
             catch (Exception ex)
             {
                 throw new Exception();
             }
         }
-    }
-
-    public class RootObject
-    {
-        public List<Employee> records { get; set; }
     }
 }
  

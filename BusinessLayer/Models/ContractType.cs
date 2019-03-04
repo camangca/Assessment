@@ -6,7 +6,7 @@ namespace BusinessLayer.Models
 {
     public enum ContractType
     {
-        HourlySalary = 1,
-        MonthtlySalary = 2,
+        HourlySalaryEmployee = 1,
+        MonthtlySalaryEmployee = 2,
     }
 }

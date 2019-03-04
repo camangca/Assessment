@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BusinessLayer.Models;
+using DeepEqual.Syntax;
 
 namespace BusinessLayer.Test
 {
@@ -15,7 +16,7 @@ namespace BusinessLayer.Test
             {
                 id = 1,
                 name = "Camilo Angel",
-                contractTypeName = ContractType.HourlySalary,
+                contractTypeName = ContractType.HourlySalaryEmployee,
                 roleId = 1,
                 roleName = "Administrator",
                 roleDescription = "Administrator role",
@@ -29,7 +30,7 @@ namespace BusinessLayer.Test
             {
                 id = 1,
                 name = "Camilo Angel",
-                contractTypeName = ContractType.HourlySalary,
+                contractTypeName = ContractType.HourlySalaryEmployee,
                 roleId = 1,
                 roleName = "Administrator",
                 roleDescription = "Administrator role",
@@ -40,15 +41,11 @@ namespace BusinessLayer.Test
 
             employeeSalaryService.GetEmployeeSalaryByContractType(employeeInfo);
 
-            // Assert
-            Assert.AreEqual(expected.id, employeeInfo.id);
-            Assert.AreEqual(expected.name, employeeInfo.name);
-            Assert.AreEqual(expected.contractTypeName, employeeInfo.contractTypeName);
-            Assert.AreEqual(expected.roleId, employeeInfo.roleId);
-            Assert.AreEqual(expected.roleName, employeeInfo.roleName);
-            Assert.AreEqual(expected.roleDescription, employeeInfo.roleDescription);
-            Assert.AreEqual(expected.hourlySalary, employeeInfo.hourlySalary);
-            Assert.AreEqual(expected.anualSalary, employeeInfo.anualSalary);
+
+            //Assert
+            employeeInfo.WithDeepEqual(expected)
+               .SkipDefault<Employee>()
+               .Assert();
 
         }
 
@@ -60,7 +57,7 @@ namespace BusinessLayer.Test
             {
                 id = 1,
                 name = "Camilo Angel",
-                contractTypeName = ContractType.MonthtlySalary,
+                contractTypeName = ContractType.MonthtlySalaryEmployee,
                 roleId = 1,
                 roleName = "Administrator",
                 roleDescription = "Administrator role",
@@ -74,7 +71,7 @@ namespace BusinessLayer.Test
             {
                 id = 1,
                 name = "Camilo Angel",
-                contractTypeName = ContractType.MonthtlySalary,
+                contractTypeName = ContractType.MonthtlySalaryEmployee,
                 roleId = 1,
                 roleName = "Administrator",
                 roleDescription = "Administrator role",
@@ -84,16 +81,12 @@ namespace BusinessLayer.Test
             EmployeeSalaryService employeeSalaryService = new EmployeeSalaryService();
 
             employeeSalaryService.GetEmployeeSalaryByContractType(employeeInfo);
+            
+            //Assert
+            employeeInfo.WithDeepEqual(expected)
+               .SkipDefault<Employee>()
+               .Assert();
 
-            // Assert
-            Assert.AreEqual(expected.id, employeeInfo.id);
-            Assert.AreEqual(expected.name, employeeInfo.name);
-            Assert.AreEqual(expected.contractTypeName, employeeInfo.contractTypeName);
-            Assert.AreEqual(expected.roleId, employeeInfo.roleId);
-            Assert.AreEqual(expected.roleName, employeeInfo.roleName);
-            Assert.AreEqual(expected.roleDescription, employeeInfo.roleDescription);
-            Assert.AreEqual(expected.hourlySalary, employeeInfo.hourlySalary);
-            Assert.AreEqual(expected.anualSalary, employeeInfo.anualSalary);
 
         }
     }

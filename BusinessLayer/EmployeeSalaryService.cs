@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Contracts;
 using BusinessLayer.Models;
+using System;
 
 namespace BusinessLayer
 {
@@ -8,14 +9,23 @@ namespace BusinessLayer
     {
         public void GetEmployeeSalaryByContractType(Employee employee)
         {
-            switch (employee.contractTypeName)
+            try
             {
-                case ContractType.HourlySalary:
-                    CalculateHourlySalary(employee);
-                    break;
-                case ContractType.MonthtlySalary:
-                    CalculateMonthlySalary(employee);
-                    break;
+                switch (employee.contractTypeName)
+                {
+                    case ContractType.HourlySalaryEmployee:
+                        CalculateHourlySalary(employee);
+                        break;
+                    case ContractType.MonthtlySalaryEmployee:
+                        CalculateMonthlySalary(employee);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 
