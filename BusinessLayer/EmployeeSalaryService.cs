@@ -1,6 +1,5 @@
 ﻿using BusinessLayer.Contracts;
-using DataAccessLayer.Models;
-using System;
+using BusinessLayer.Models;
 
 namespace BusinessLayer
 {

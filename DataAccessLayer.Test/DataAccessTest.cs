@@ -1,3 +1,4 @@
+
 using DataAccessLayer.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -27,7 +28,7 @@ namespace DataAccessLayer.Test
             {
                 id = 0,
                 name = "",
-                contractTypeName = ContractType.HourlySalary,
+                contractTypeName = "",
                 roleId = 0,
                 roleName = "",
                 roleDescription = "",
@@ -37,7 +38,7 @@ namespace DataAccessLayer.Test
 
             //When
 
-            var employeeService = new EmployeeService();
+            var employeeService = new EmployeeDataService();
             int idEmployee = 0;
             var result = employeeService.GetDataEmployeeService(idEmployee);
 

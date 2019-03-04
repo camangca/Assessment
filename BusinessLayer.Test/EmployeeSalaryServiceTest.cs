@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DataAccessLayer.Models;
+using BusinessLayer.Models;
 
 namespace BusinessLayer.Test
 {
