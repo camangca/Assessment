@@ -35,9 +35,9 @@ namespace EmployeesApp.Tests.Controllers
         [TestMethod]
         public void Get()
         {
-            List<Models.Employee> expected = new List<Models.Employee>();
-            expected.Add(new Models.Employee { id = 1, name = "Juan", contractTypeName = Models.ContractType.HourlySalaryEmployee, roleId = 1, roleName = "Administrator", roleDescription = null, hourlySalary = 60000, monthlySalary = 80000 });
-            expected.Add(new Models.Employee { id = 2, name = "Sebastian", contractTypeName = Models.ContractType.MonthtlySalaryEmployee, roleId = 2, roleName = "Contractor", roleDescription = null, hourlySalary = 60000, monthlySalary = 80000 });
+            List<Employee> expected = new List<Employee>();
+            expected.Add(new Employee { id = 1, name = "Juan", contractTypeName = BusinessLayer.Models.ContractType.HourlySalaryEmployee, roleId = 1, roleName = "Administrator", roleDescription = null, hourlySalary = 60000, monthlySalary = 80000 });
+            expected.Add(new Employee { id = 2, name = "Sebastian", contractTypeName = BusinessLayer.Models.ContractType.MonthtlySalaryEmployee, roleId = 2, roleName = "Contractor", roleDescription = null, hourlySalary = 60000, monthlySalary = 80000 });
             //Given
             List<DataAccessLayer.Models.Employee> expectedList1 = new List<DataAccessLayer.Models.Employee>();
             expectedList1.Add(new DataAccessLayer.Models.Employee { id = 1, name = "Juan", contractTypeName = "HourlySalaryEmployee", roleId = 1, roleName = "Administrator", roleDescription = null, hourlySalary = 60000, monthlySalary = 80000 });
@@ -52,18 +52,10 @@ namespace EmployeesApp.Tests.Controllers
                     return expectedList1;
                 });
 
-            _employeeSalaryService.Setup(x => x.GetEmployeeSalaryByContractType(employee1))
-                .Callback<Employee>((employeeArg) =>
-                {
-                    employeeArg = employee1;
-                });
 
-            _employeeSalaryService.Setup(x => x.GetEmployeeSalaryByContractType(employee2))
-                .Callback<Employee>((employeeArg) =>
-                {
-                    employeeArg = employee2;
-                });
+            _employeeSalaryService.Setup(x => x.GetEmployeeSalaryByContractType(It.IsAny<Employee>())).Callback<Employee>(x => employee1 = x).Verifiable();
 
+            _employeeSalaryService.Setup(x => x.GetEmployeeSalaryByContractType(It.IsAny<Employee>())).Callback<Employee>(x => employee2 = x).Verifiable();
 
             // Act
             List <Employee> result = _controller.Get();
@@ -72,6 +64,7 @@ namespace EmployeesApp.Tests.Controllers
             result.WithDeepEqual(expected)
                .SkipDefault<Employee>()
                .Assert();
+
         }
 
         [TestMethod]

@@ -68,7 +68,7 @@ namespace EmployeesApp.Controllers
         }
         private void CalculateAnualSalary(List<Employee> employeeList)
         {
-            foreach (var item in employeeList)
+            foreach (Employee item in employeeList)
             {
                 _employeeSalaryService.GetEmployeeSalaryByContractType(item);
             }
