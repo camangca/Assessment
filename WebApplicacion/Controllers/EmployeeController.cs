@@ -11,8 +11,8 @@ namespace WebApplicacion.Controllers
     public class EmployeeController : Controller
     {
 
-        //private string wepApiURL = "http://employeesapiassessment.azurewebsites.net/api/employee";
-        private string wepApiURL = "http://localhost:58813/api/employee";
+        private string wepApiURL = "http://employeesapiassessment.azurewebsites.net/api/employee";
+        //private string wepApiURL = "http://localhost:58813/api/employee";
 
         // GET: Employee
         public ActionResult Index()
